@@ -210,8 +210,8 @@ public final class Pembelian_Hutang_RincianBarang extends javax.swing.JFrame {
                 String a = res.getString("faktur_bg");
                 System.out.println("Data =");
                 if (a == null) {
-//                    this.fakturBB = "BB18-0001";
-//                    System.out.println(this.fakturBB);
+                    this.fakturBB = "BB18-0001";
+                    System.out.println(this.fakturBB);
                     System.out.println("work");
 
                 } else {
