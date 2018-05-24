@@ -15,6 +15,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -62,7 +63,8 @@ public final class Pembelian_HutangBG extends javax.swing.JFrame {
                     + "supplier.kota_supplier,"
                     + "supplier.nama_supplier,"
                     + "pembelian.biaya_pembayaran,"
-                    + "pembelian.potongan "
+                    + "pembelian.potongan, "
+                    + "SUM(biaya_pembayaran) as total "
                     + "FROM supplier, pembelian "
                     + "WHERE supplier.kode_supplier = pembelian.kode_supplier "
                     + "AND nama_supplier LIKE '%"
@@ -70,9 +72,9 @@ public final class Pembelian_HutangBG extends javax.swing.JFrame {
                     + "%' "
                     + "AND biaya_pembayaran < 0 "
                     + "AND faktur_bg !='' "
-                    + "AND no_seri_bg !='' "
+                    + "AND no_seri_bg !='' GROUP by faktur_bg "
                     + "ORDER BY tgl_pembelian DESC";
-            System.out.println(sql);
+            // System.out.println(sql);
             Connection conn = (Connection) Koneksi.configDB();
             Statement stat = conn.createStatement();
             ResultSet res = stat.executeQuery(sql);
@@ -83,8 +85,8 @@ public final class Pembelian_HutangBG extends javax.swing.JFrame {
                     dotConverter(res.getString("tgl_pembelian")),
                     res.getString("no_seri_bg"),
                     res.getString("nama_supplier"),
-                    res.getString("kota_supplier"),
-                    res.getString("biaya_pembayaran")                    
+                    res.getString("kota_supplier"),                    
+                    res.getString("total")
                 });
             }
         } catch (SQLException e) {
@@ -164,49 +166,49 @@ public final class Pembelian_HutangBG extends javax.swing.JFrame {
 
         tbl_hutangBG.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "No.", "No Faktur BG", "Tanggal", "No Seri", "Supplier", "Kota", "Biaya", "Sub Total"
+                "No.", "No Faktur BG", "Tanggal", "No Seri", "Supplier", "Kota", "Total"
             }
         ));
         tbl_hutangBG.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -279,7 +281,10 @@ public final class Pembelian_HutangBG extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbl_hutangBGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_hutangBGMouseClicked
-        Pembelian_HutangBG_DetailFaktur df = new Pembelian_HutangBG_DetailFaktur();
+        TableModel tabelModel = tbl_hutangBG.getModel();
+        int baris = tbl_hutangBG.getSelectedRow();
+        String noFakturBG = String.valueOf(tabelModel.getValueAt(baris, 1));
+        Pembelian_HutangBG_DetailFaktur df = new Pembelian_HutangBG_DetailFaktur(noFakturBG);
         df.setVisible(true);
         df.setLocationRelativeTo(null);
     }//GEN-LAST:event_tbl_hutangBGMouseClicked

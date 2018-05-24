@@ -33,7 +33,7 @@ public final class Pembelian_Hutang_RincianBarang extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         //  fakturBP();
-        fakturBB();
+
     }
 
     public Pembelian_Hutang_RincianBarang(int totalHutang, int potongan, String[] noFaktur, int[] hrgItem, int jum) {
@@ -49,6 +49,7 @@ public final class Pembelian_Hutang_RincianBarang extends javax.swing.JFrame {
 
         date();
         fakturBP();
+        fakturBB();
         bank();
     }
 

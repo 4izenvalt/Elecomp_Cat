@@ -112,8 +112,7 @@ public final class Pembelian_Hutang extends javax.swing.JFrame {
         noFaktur = new String[jumlahBaris];
         hrgItem = new int[jumlahBaris];
 
-        TableModel tabelModel;
-        tabelModel = tbl_pembelianHutang.getModel();
+        TableModel tabelModel = tbl_pembelianHutang.getModel();
         for (int i = 0; i < jumlahBaris; i++) {
             action = (boolean) tabelModel.getValueAt(i, 0);
             if (action == true) {
