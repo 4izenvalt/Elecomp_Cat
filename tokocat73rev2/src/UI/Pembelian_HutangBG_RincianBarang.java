@@ -11,11 +11,46 @@ package UI;
  */
 public class Pembelian_HutangBG_RincianBarang extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Pembelian_HutangBG_RincianBarang
-     */
+    private int totalHutang = 0;
+    private int jumFaktur = 0;
+    private String[] noFaktur;
+    private int[] hrgItem;
+
     public Pembelian_HutangBG_RincianBarang() {
         initComponents();
+        this.setVisible(true);
+    }
+
+    public Pembelian_HutangBG_RincianBarang(int totalHutang, int jumFaktur, String[] noFaktur, int[] hrgItem) {
+        initComponents();
+        this.totalHutang = totalHutang;
+        this.jumFaktur = jumFaktur;
+        this.noFaktur = noFaktur;
+        this.hrgItem = hrgItem;
+
+        txt_bayar.setText("" + totalHutang);
+
+        for (int i = 0; i < this.jumFaktur; i++) {
+            System.out.println("Data " + i + " ------" + this.noFaktur[i] + "--------" + this.hrgItem[i]);
+        }
+
+    }
+
+    public void autoSum() {
+        int bayar = 0;
+        int bayar2 = 0;
+        if (txt_bayar.getText().equals("")) {
+            bayar = 0;
+        } else {
+            bayar = Integer.parseInt(txt_bayar.getText());
+        }
+        if (txt_bayar2.getText().equals("")) {
+            bayar2 = 0;
+        } else {
+            bayar2 = Integer.parseInt(txt_bayar2.getText());
+        }
+        int kembali = bayar + bayar2 + totalHutang;
+        txt_kembali.setText("" + kembali);
     }
 
     /**
@@ -28,14 +63,14 @@ public class Pembelian_HutangBG_RincianBarang extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel69 = new javax.swing.JLabel();
-        jTextField47 = new javax.swing.JTextField();
+        txt_kembali = new javax.swing.JTextField();
         jLabel75 = new javax.swing.JLabel();
-        jTextField44 = new javax.swing.JTextField();
-        jTextField43 = new javax.swing.JTextField();
+        txt_ket = new javax.swing.JTextField();
+        txt_bayar2 = new javax.swing.JTextField();
         jComboBox7 = new javax.swing.JComboBox<>();
         jLabel70 = new javax.swing.JLabel();
         jLabel78 = new javax.swing.JLabel();
-        jTextField33 = new javax.swing.JTextField();
+        txt_bayar = new javax.swing.JTextField();
         jLabel77 = new javax.swing.JLabel();
         jLabel83 = new javax.swing.JLabel();
         jButton19 = new javax.swing.JButton();
@@ -43,7 +78,7 @@ public class Pembelian_HutangBG_RincianBarang extends javax.swing.JFrame {
         jComboBox8 = new javax.swing.JComboBox<>();
         jLabel74 = new javax.swing.JLabel();
         jButton18 = new javax.swing.JButton();
-        jTextField41 = new javax.swing.JTextField();
+        txt_bayar1 = new javax.swing.JTextField();
         jSeparator11 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -51,10 +86,10 @@ public class Pembelian_HutangBG_RincianBarang extends javax.swing.JFrame {
         jLabel69.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel69.setText("Cara Bayar");
 
-        jTextField47.setEditable(false);
-        jTextField47.addActionListener(new java.awt.event.ActionListener() {
+        txt_kembali.setEditable(false);
+        txt_kembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField47ActionPerformed(evt);
+                txt_kembaliActionPerformed(evt);
             }
         });
 
@@ -69,7 +104,7 @@ public class Pembelian_HutangBG_RincianBarang extends javax.swing.JFrame {
         jLabel78.setForeground(new java.awt.Color(51, 51, 51));
         jLabel78.setText("Bayar 2");
 
-        jTextField33.setEditable(false);
+        txt_bayar.setEditable(false);
 
         jLabel77.setForeground(new java.awt.Color(51, 51, 51));
         jLabel77.setText("Keuangan 2");
@@ -98,6 +133,12 @@ public class Pembelian_HutangBG_RincianBarang extends javax.swing.JFrame {
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton18ActionPerformed(evt);
+            }
+        });
+
+        txt_bayar1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_bayar1KeyReleased(evt);
             }
         });
 
@@ -131,18 +172,18 @@ public class Pembelian_HutangBG_RincianBarang extends javax.swing.JFrame {
                                         .addGap(70, 70, 70)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField41, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_bayar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_bayar1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField43, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txt_bayar2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel81)
                                             .addComponent(jLabel83))
                                         .addGap(74, 74, 74)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField44, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField47, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_ket, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jButton18)
                                                 .addGap(18, 18, 18)
@@ -158,7 +199,7 @@ public class Pembelian_HutangBG_RincianBarang extends javax.swing.JFrame {
                 .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_bayar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel70))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -166,7 +207,7 @@ public class Pembelian_HutangBG_RincianBarang extends javax.swing.JFrame {
                     .addComponent(jLabel74))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_bayar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel75))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -175,14 +216,14 @@ public class Pembelian_HutangBG_RincianBarang extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel78)
-                    .addComponent(jTextField43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_bayar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel81)
-                    .addComponent(jTextField44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_ket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel83))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -194,17 +235,21 @@ public class Pembelian_HutangBG_RincianBarang extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField47ActionPerformed
+    private void txt_kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_kembaliActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField47ActionPerformed
+    }//GEN-LAST:event_txt_kembaliActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        
+
     }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void txt_bayar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_bayar1KeyReleased
+        autoSum();
+    }//GEN-LAST:event_txt_bayar1KeyReleased
 
     /**
      * @param args the command line arguments
@@ -255,10 +300,10 @@ public class Pembelian_HutangBG_RincianBarang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JSeparator jSeparator11;
-    private javax.swing.JTextField jTextField33;
-    private javax.swing.JTextField jTextField41;
-    private javax.swing.JTextField jTextField43;
-    private javax.swing.JTextField jTextField44;
-    private javax.swing.JTextField jTextField47;
+    private javax.swing.JTextField txt_bayar;
+    private javax.swing.JTextField txt_bayar1;
+    private javax.swing.JTextField txt_bayar2;
+    private javax.swing.JTextField txt_kembali;
+    private javax.swing.JTextField txt_ket;
     // End of variables declaration//GEN-END:variables
 }

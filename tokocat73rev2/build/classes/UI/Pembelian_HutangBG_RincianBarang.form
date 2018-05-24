@@ -50,10 +50,10 @@
                                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jComboBox7" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                                          <Component id="jTextField33" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                                          <Component id="jTextField41" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                          <Component id="txt_bayar" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                          <Component id="txt_bayar1" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                                           <Component id="jComboBox8" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                                          <Component id="jTextField43" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                          <Component id="txt_bayar2" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -63,8 +63,8 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField44" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                                          <Component id="jTextField47" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                          <Component id="txt_ket" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                          <Component id="txt_kembali" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jButton18" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -90,7 +90,7 @@
               <Component id="jSeparator11" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField33" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_bayar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -100,7 +100,7 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField41" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_bayar1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel75" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
@@ -111,16 +111,16 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel78" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField43" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_bayar2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel81" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField44" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_ket" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField47" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_kembali" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel83" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -142,12 +142,12 @@
         <Property name="text" type="java.lang.String" value="Cara Bayar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField47">
+    <Component class="javax.swing.JTextField" name="txt_kembali">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField47ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_kembaliActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel75">
@@ -158,9 +158,9 @@
         <Property name="text" type="java.lang.String" value="Bayar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField44">
+    <Component class="javax.swing.JTextField" name="txt_ket">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField43">
+    <Component class="javax.swing.JTextField" name="txt_bayar2">
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox7">
       <Properties>
@@ -194,7 +194,7 @@
         <Property name="text" type="java.lang.String" value="Bayar 2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField33">
+    <Component class="javax.swing.JTextField" name="txt_bayar">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
@@ -269,7 +269,10 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton18ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField41">
+    <Component class="javax.swing.JTextField" name="txt_bayar1">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_bayar1KeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator11">
       <Properties>

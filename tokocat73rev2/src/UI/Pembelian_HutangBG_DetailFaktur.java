@@ -20,8 +20,7 @@ import javax.swing.table.TableModel;
  */
 public final class Pembelian_HutangBG_DetailFaktur extends javax.swing.JFrame {
 
-    private int totalHutang = 0;
-    private int potongan = 0;
+    private int totalHutang = 0;    
     private int jumFaktur = 0;
     private String[] noFaktur;
     private int[] hrgItem;
@@ -122,8 +121,7 @@ public final class Pembelian_HutangBG_DetailFaktur extends javax.swing.JFrame {
                 hargaItem = 0;
                 totalPotongan = 0;
             }
-            totalHutang += hargaItem;
-            potongan += totalPotongan;
+            totalHutang += hargaItem;            
         }
         txt_total.setText("" + totalHutang);
 
@@ -276,7 +274,7 @@ public final class Pembelian_HutangBG_DetailFaktur extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_totalActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        Pembelian_HutangBG_RincianBarang rb = new Pembelian_HutangBG_RincianBarang();
+        Pembelian_HutangBG_RincianBarang rb = new Pembelian_HutangBG_RincianBarang(totalHutang, jumFaktur,noFaktur, hrgItem);
         rb.setVisible(true);
         rb.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton12ActionPerformed
